@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type ="text" id="input1" />
+    <h1 id = "h1id"> This is heading </h1>
+    <h2 id = "h2id"> This is the content area</h2>
+    <button onclick="changetext()"> CLICK </button>
+    <script>
+    
+        function changetext(){
+            if(input1 != null){   
+                let val = document.getElementById("input1").value;
+                console.log(val);
+                document.getElementById("h2id").innerHTML = val;
+                document.getElementById("h1id").innerHTML = "this is from javascript"; 
+            }
+        }
+
+    </script>
+</body>
+</html>

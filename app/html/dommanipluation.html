@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red{
+            color: red;
+        }
+        .blue{
+            color:blue;
+        }
+    </style>
+</head>
+<body>
+    <h1 id ="h1_id">  H! , WELCOME TO javascript</h1><br>
+    <input type="text" id="t1"/>
+    <button id="red_id"> RED </button><br><br>
+    <button id="blue_id"> BLUE </button><br>
+    <script>
+        var h1_class = document.querySelector("#h1_id").classList;
+        chgred=()=>{
+            h1_class.add('red');
+            h1_class.remove('blue');
+        }
+        chgblue=()=>{
+            h1_class.add('blue');
+            h1_class.remove('red');
+        }
+    
+        document.querySelector("#red_id").addEventListener("click",chgred);
+        document.querySelector("#blue_id").addEventListener("click",chgblue);
+    </script>
+</body>
+</html>

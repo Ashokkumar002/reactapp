@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red{
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id ="t1" />
+    <button id="btn_id"> click</button>
+    <script>
+        var t1 = document.querySelector("#t1");
+        var t1_class = t1.classList;
+        red_line=()=>{
+            if(t1.value.trim() == ""){
+                t1_class.add('red');
+            }
+            else{
+                t1_class.remove('red');
+            }
+        }
+        document.querySelector("#btn_id").addEventListener("click",red_line);
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body >
+    <input type="number" id ="num1" placeholder="ENTER NUMBER1"/><br>
+    <input type="number" id ="num2" placeholder="ENTER NUMBER1"/><br>  
+    <h2 id ="out">___________</h2><br>
+    <button onclick="add()">ADD</button>
+    <button onclick="sub()">SUB</button><br>
+    <button onclick="mul()">MUL</button>
+    <button onclick="div()">DIV</button><br>
+    <script>
+        function add() {
+            var a = parseFloat(document.getElementById("num1").value);
+            var b = parseFloat(document.getElementById("num2").value);
+            var c = a + b;
+            console.log(c);
+            document.getElementById("out").innerHTML = c;
+            alert("The result is: " + c);
+        }
+
+        function sub() {
+            var a = parseFloat(document.getElementById("num1").value);
+            var b = parseFloat(document.getElementById("num2").value);
+            var c = a - b;
+            console.log(c);
+            document.getElementById("out").innerHTML = c;
+            alert("The result is: " + c);
+        }
+
+        function mul() {
+            var a = parseFloat(document.getElementById("num1").value);
+            var b = parseFloat(document.getElementById("num2").value);
+            var c = a * b;
+            console.log(c);
+            document.getElementById("out").innerHTML = c;
+            alert("The result is: " + c);
+        }
+
+        function div() {
+            var a = parseFloat(document.getElementById("num1").value);
+            var b = parseFloat(document.getElementById("num2").value);
+            if (b !== 0) {
+                var c = a / b;
+                console.log(c);
+                document.getElementById("out").innerHTML = c;
+                alert("The result is: " + c);
+            } else {
+                alert("Division by zero is not allowed.");
+            }
+        }
+    </script>
+</body>
+</html>
