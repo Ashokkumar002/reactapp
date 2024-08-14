@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+      }
+      button:hover {
+        background-color: blue;
+        border: 2px solid black;
+        border-color: blueviolet;
+        width: 90px;
+        color: white;
+        height: 40px;
+        margin: 3px;
+        border-radius: 10px;
+      }
+      button {
+        background-color: lawngreen;
+        color: black;
+        width: 60px;
+        height: 60px;
+        border-radius: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="getApi()">GET</button><br /><br />
+    <button onclick="fetchPost()">POST</button>
+    <h2 id="res"></h2>
+
+  </body>
+  <script>
+    async function getApi() {
+      let res = await fetch("https://reqres.in/api/users/2", { method: "GET" });
+      let json = await res.json();
+      console.log(json);
+
+      document.getElementById("res").innerHTML = "status: " + res["status"];
+    }
+    async function fetchPost() {
+      let data = {
+        name: "Ashok",
+        job: "leader",
+      };
+      let res = await fetch("https://reqres.in/api/users", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: { "content-type": "application/json" },
+      });
+      let json = await res.json();
+      console.log(json);
+
+      document.getElementById("res").innerHTML = "status: " + res["status"];
+    }
+  </script>
+</html>
