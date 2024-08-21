@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <ul class="menu">
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="home.html">Home</a></li>
+      <li><a class="active" href="login.html">Login</a></li>
+      <li><a href="register.html">Register</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="login">
+      <h2>LOGIN</h2>
+      <div>
+        <label for="email">Email: </label>
+        <input type="text" id="uname" />
+      </div>
+      <div>
+        <label for="pass">Password: </label>
+        <input type="password" id="pass" />
+      </div>
+      <button type="button" onclick="fetchLogin()">Login</button>
+      <a href="/register.html">Dont have an Account? Register</a>
+    </div>
+    <footer>
+      <p>Ashok @2024 copyrights</p>
+    </footer>
+  </body>
+  <script>
+    async function fetchLogin() {
+      let data = {
+        email: document.getElementById("uname").value,
+        password: document.getElementById("pass").value,
+      };
+      if (!data["email"] && !data["password"]) {
+        alert("Enter Username and Password");
+        return;
+      }
+      let res = await fetch("https://reqres.in/api/login", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: { "content-type": "application/json" },
+      });
+      let json = await res.json();
+      console.log(json["token"]);
+      if (json["token"]) {
+        alert("login successful!");
+      }
+    }
+  </script>
+</html>
