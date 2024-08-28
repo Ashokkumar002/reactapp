@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        async function getUserlist() {
+            let res = await fetch("https://reqres.in/api/users",
+            {"method":"GET"});
+
+            let json = await res.json();
+            for(let index in json['data'])
+        {
+            console.log(json['data'][index]['first_name']);
+            console.log(json['data'][index]['email']);
+        }
+        }
+        getUserlist();
+    </script>
+</body>
+</html>
